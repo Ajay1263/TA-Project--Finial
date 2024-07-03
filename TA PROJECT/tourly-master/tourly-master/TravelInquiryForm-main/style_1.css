@@ -1,0 +1,96 @@
+/* Reset default margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a background color to the entire body */
+body {
+  background-color: #E5E0D7;
+  font-family: tahoma, verdana, sans-serif;
+  font-size: 15px;
+}
+
+/* Center-align headings and paragraphs */
+h1, h3 {
+  text-align: center;
+  margin: 10px auto;
+}
+
+/* Center-align the entire form and align fields vertically */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Center vertically in viewport */
+}
+
+/* Style input fields */
+input {
+  border: 1px solid #888;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  color: #555;
+  margin: 5px 0;
+  padding: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Style select dropdowns */
+select {
+  border: 1px solid #888;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  color: #555;
+  margin: 5px 0;
+  padding: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Style buttons and button container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+/* Center-align the link list */
+#link-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+/* Style tabs and tab content (if you have tabs) */
+.tabs {
+  display: flex;
+}
+
+.tablink {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+}
+
+.tabcontent {
+  display: none;
+}

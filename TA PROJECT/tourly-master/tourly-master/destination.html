@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanMyTrip</title>
+
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="destination.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+  <script src="book.js"></script>
+  <!--
+    - #HEADER
+  -->
+<header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <a href="#contact" class="helpline-box">
+
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <div class="wrapper">
+            <p class="helpline-title">For Further Inquires :</p>
+
+            <p class="helpline-number">+(91) 1234567890</p>
+          </div>
+
+        </a>
+
+        <a href="#" class="logo">
+          <img style="height: 55px ; width: 170px; mix-blend-mode: multiply;" src="./assets/images/project-logo.jpg" alt="PlanMyTrip logo">
+        </a>
+
+        <div class="header-btn-group">
+
+          <button class="search-btn" aria-label="Search">
+            <ion-icon name="search"></ion-icon>
+          </button>
+
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="TA PROJECT\tourly-master\tourly-master\index.html" class="logo">
+              <img src="./assets/images/project-logo.jpg" alt="PlanMyTrip logo">
+            </a>
+
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <ul class="navbar-list">
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>home</a>
+            </li>
+
+           
+            <li>
+              <a href="#destination" class="navbar-link" data-nav-link>destination</a>
+            </li>
+
+            
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>gallery</a>
+            </li>
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>contact us</a>
+            </li>
+
+          </ul>
+
+        </nav>
+        
+        <!-- <button ahref class="btn btn-primary">Log Out</button> -->
+        <a href="../../login_index.html" id="logout" class="btn btn-primary">Log Out</a>
+
+      </div>
+    </div>
+
+  </header>
+  
+
+<section class="popular" id="destination">
+  <div class="container">
+
+    <h2 class="h2 section-title">Popular destinations</h2>
+
+    <p class="section-text">
+      Discover the allure of popular destinations, where culture, history, and natural beauty converge to captivate every traveler's heart
+    </p>
+
+    <ul class="popular-list">
+
+      <li>
+        <div class="popular-card">
+
+          <figure class="card-img">
+            <img src="./assets/images/popular-1.jpg" alt="San miguel, italy" loading="lazy">
+          </figure>
+
+          <div class="card-content">
+
+            <p class="card-subtitle">
+              <p>ITALY</p>
+            </p>
+
+            <h3 class="h3 card-title">
+              <p>Rome</p>
+            </h3>
+
+            <p class="card-text">
+              A vibrant tapestry of culture, color, and community, inviting you to immerse yourself in its rich heritage and warmth.<br>
+            </p>
+
+          </div>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="popular-card">
+
+          <figure class="card-img">
+            <img src="./assets/images/popular-2.jpg" alt="Burj khalifa, dubai" loading="lazy">
+          </figure>
+
+          <div class="card-content">
+
+
+            <p class="card-subtitle">
+              <p>UAE</p>
+            </p>
+
+            <h3 class="h3 card-title">
+              <p>Dubai</p>
+            </h3>
+
+            <p class="card-text">
+              Touch the sky and embrace the marvel of human ingenuity, where the world converges at the pinnacle of architectural magnificence.
+            </p>
+
+          </div>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="popular-card">
+
+          <figure class="card-img">
+            <img src="./assets/images/popular-3.jpg" alt="Kyoto temple, japan" loading="lazy">
+          </figure>
+
+          <div class="card-content">
+
+            <p class="card-subtitle">
+              <p>JAPAN</p>
+            </p>
+
+            <h3 class="h3 card-title">
+              <p>Tokyo</p>
+            </h3>
+
+            <p class="card-text">
+              Tranquility whispers through ancient corridors, offering solace and serenity amidst the timeless beauty of Japanese spirituality.
+            </p>
+
+          </div>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="popular-card">
+
+          <figure class="card-img">
+            <img src="./assets/images/popular-4.jpeg" alt="" loading="lazy">
+          </figure>
+
+          <div class="card-content">
+
+            <p class="card-subtitle">
+              <p>SPAIN</p>
+            </p>
+
+            <h3 class="h3 card-title">
+              <p>Barcelona</p>
+            </h3>
+
+            <p class="card-text">
+             Where the echoes of history blend seamlessly with the vibrant pulse of modernity. <br><br>
+
+            </p>
+
+          </div>
+
+        </div>
+      </li>
+      <li>
+        <div class="popular-card">
+
+          <figure class="card-img">
+            <img src="./assets/images/popular-5.jpg" alt="" loading="lazy">
+          </figure>
+
+          <div class="card-content">
+
+            <p class="card-subtitle">
+              <p>INDIA</p>
+            </p>
+
+            <h3 class="h3 card-title">
+              <p>Mumbai</p>
+            </h3>
+
+            <p class="card-text">
+              Amidst the chaos of the urban landscape, a testament to the city's ceaseless dynamism and unwavering spirit. 
+            </p>
+
+          </div>
+
+        </div>
+      </li>
+
+
+      <li>
+        <div class="popular-card">
+
+          <figure class="card-img">
+            <img src="./assets/images/popular-6.jpeg" alt="" loading="lazy">
+          </figure>
+
+          <div class="card-content">
+
+            <p class="card-subtitle">
+              <p>INDONESIA</p>
+            </p>
+
+            <h3 class="h3 card-title">
+              <p>Bali</p>
+            </h3>
+
+            <p class="card-text">
+               Bali whispers tales of tranquility and enchantment beneath the swaying palms and azure skies.<br><br>
+            </p>
+
+          </div>
+
+        </div>
+      </li>
+
+    </li>
+
+
+    <li>
+      <div class="popular-card">
+
+        <figure class="card-img">
+          <img src="./assets/images/popular-7.jpeg" alt="" loading="lazy">
+        </figure>
+
+        <div class="card-content">
+
+          <p class="card-subtitle">
+            <p>FRANCE  </p>
+          </p>
+
+          <h3 class="h3 card-title">
+            <p>Paris</p>
+          </h3>
+
+          <p class="card-text">
+            romance blooms amidst the elegant boulevards and iconic landmarks that define timeless allure of Paris.<br><br>
+          </p>
+
+        </div>
+
+      </div>
+    </li>
+
+  </li>
+
+
+  <li>
+    <div class="popular-card">
+
+      <figure class="card-img">
+        <img src="./assets/images/popular-8.jpeg" alt="" loading="lazy">
+      </figure>
+
+      <div class="card-content">
+
+        <p class="card-subtitle">
+          <p>CANADA</p>
+        </p>
+
+        <h3 class="h3 card-title">
+          <p>TORONTO
+          </p>
+        </h3>
+
+        <p class="card-text">
+          Toronto pulses with the energy of a modern metropolis while retaining the warmth of its diverse communities.
+        </p>
+
+      </div>
+
+    </div>
+  </li>
+
+
+</li>
+
+
+<li>
+  <div class="popular-card">
+
+    <figure class="card-img">
+      <img src="./assets/images/popular-9.jpg" alt="" loading="lazy">
+    </figure>
+
+    <div class="card-content">
+
+      <p class="card-subtitle">
+        <p>AUSTRALIA</p>
+      </p>
+
+      <h3 class="h3 card-title">
+        <p>Sydney</p>
+      </h3>
+
+      <p class="card-text">
+        Nestled along the sun-kissed shores of Australia, Sydney beckons with its iconic skyline and laid-back coastal charm.
+      </p>
+
+    </div>
+
+  </div>
+</li>
+
+</li>
+
+
+<li>
+  <div class="popular-card">
+
+    <figure class="card-img">
+      <img src="./assets/images/popular-10.jpeg" alt="" loading="lazy">
+    </figure>
+
+    <div class="card-content">
+
+      <p class="card-subtitle">
+        <p>GREECE</p>
+      </p>
+
+      <h3 class="h3 card-title">
+        <p>Santorini</p>
+      </h3>
+
+      <p class="card-text">
+        Perched atop dramatic cliffs overlooking the Aegean Sea, Santorini is a vision of ethereal beauty and timeless charm.
+      </p>
+
+    </div>
+
+  </div>
+</li>
+
+</li>
+
+
+<li>
+  <div class="popular-card">
+
+    <figure class="card-img">
+      <img src="./assets/images/popular-11.jpg" alt="" loading="lazy">
+    </figure>
+
+    <div class="card-content">
+
+      <p class="card-subtitle">
+        <p>USA</p>
+      </p>
+
+      <h3 class="h3 card-title">
+        <p>NY CITY</p>
+      </h3>
+
+      <p class="card-text">
+        New York City pulsates with the energy of a million dreams taking flight amidst the towering skyscrapers and bustling streets.
+      </p>
+
+    </div>
+
+  </div>
+</li>
+
+</li>
+
+
+<li>
+  <div class="popular-card">
+
+    <figure class="card-img">
+      <img src="./assets/images/popular-12.jpg" alt="" loading="lazy">
+    </figure>
+
+    <div class="card-content">
+
+      <p class="card-subtitle">
+        <p>SWITZERLAND</p>
+      </p>
+
+      <h3 class="h3 card-title">
+        <p>ZURICH</p>
+      </h3>
+
+      <p class="card-text">
+        Amidst the tranquil parks and gardens that dot the cityscape, one finds a sanctuary of peace and serenity.
+      </p>
+
+    </div>
+
+  </div>
+</li>
+
+
+
+    </ul>
+
+    
+
+  </div>
+</section>
+
+</html>
+

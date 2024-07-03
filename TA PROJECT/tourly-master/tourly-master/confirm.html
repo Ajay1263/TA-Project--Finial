@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanMyTrip</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="confirm.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+<script src="confirm.js"></script>
+  <!--
+    - #HEADER
+  -->
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <a href="#contact" class="helpline-box">
+
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <div class="wrapper">
+            <p class="helpline-title">For Further Inquires :</p>
+
+            <p class="helpline-number">+(91) 1234567890</p>
+          </div>
+
+        </a>
+
+        <a href="#" class="logo">
+          <img style="height: 55px ; width: 170px; mix-blend-mode: multiply;" src="./assets/images/project-logo.jpg" alt="PlanMyTrip logo">
+        </a>
+
+        <div class="header-btn-group">
+
+          <button class="search-btn" aria-label="Search">
+            <ion-icon name="search"></ion-icon>
+          </button>
+
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="TA PROJECT\tourly-master\tourly-master\index.html" class="logo">
+              <img src="./assets/images/project-logo.jpg" alt="PlanMyTrip logo">
+            </a>
+
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <ul class="navbar-list">
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>home</a>
+            </li>
+
+           
+            <li>
+              <a href="destination.html" class="navbar-link" data-nav-link>destination</a>
+            </li>
+
+            
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>gallery</a>
+            </li>
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>contact us</a>
+            </li>
+
+          </ul>
+
+        </nav>
+        
+        <!-- <button ahref class="btn btn-primary">Log Out</button> -->
+        <a href="../../login_index.html" id="logout" class="btn btn-primary">Log Out</a>
+
+
+      </div>
+    </div>
+
+  </header>
+  
+  <section class="popular" id="destination">
+  
+    <h2 class="h2 section-title">Confirm TICKET</h2>
+  </section>
+
+  <div class="confirm-main">
+    
+    <div class="confirm-left">
+      <img src="confirmjpg.jpg"> 
+    </div>
+      
+    <div class="confirm-right">
+      <div class ="one">
+        <h2 id="book-place"></h2>
+      </div>
+
+      <div class="first">
+        <div class="firstBox">
+          <p class="name">Name : &nbsp;</p>
+          <p id="name"></p>
+        </div>
+        <hr style="margin: 5px;">
+        <div class="firstBox">
+          <p class="people">No. Of Guests : &nbsp;</p>
+          <p id="num-guests"></p>
+        </div>
+      </div>
+
+      <hr style="margin: 5px;">
+
+      <div class="second">
+        <div class="checkin">
+          <p id="checkin" style="font-weight: bold;">Check In </p> 
+          <p id="checkin-date"></p>
+        </div>
+        <hr style="margin: 5px;">
+        <div class="checkout"> 
+          <p id="checkout" style="font-weight: bold;">Check Out</p>
+          <p id="checkoutdate"></p>
+        </div>
+      </div>
+      
+      <hr style="margin: 5px;">
+      
+      <div class="third">
+        <div class="cost">
+          <p style="font-weight: bold; padding: 5px;">Cost : </p>
+          <p>$</p>
+          <p id="cost"></p>
+          <hr>
+        </div>
+        
+
+        <div class="payment">
+          <p class="a" style="font-weight: bold; padding: 5px;">Payment Mode: <br> </p>
+          <p class="b">Pay On Check In</p>
+
+
+
+        </div>
+      </div>
+
+      <hr style="margin: 5px;">
+
+      <div class="fourth">
+        <div class="amount">
+          <p style="font-weight: bold; padding: 5px;">Total amount : </p>
+          <p>$</p>
+          <p id="totalAmount"></p>
+        </div>
+      </div>
+
+      <div class="checkoutButton">
+        <h2 id="happy">Happy Vacation!!!</h2>
+      </div>
+      
+    </div>
+
+  </div>
+
+</body>
+</html>
+

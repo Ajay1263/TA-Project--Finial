@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEGTWJZLXY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEGTWJZLXY');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Inquiry Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Travel Inquiry Form</h1>
+	<h5>Generate a prefilled email for the travel agency with all the required information. Your mail app must be open.</h5>
+
+    <form id="travelForm">
+        <!-- Traveler Information -->
+        <fieldset>
+            <legend><h4>Traveler Information</h4></legend>
+            <div>
+                <label for="travelerName">Traveler(s) Name:*</label>
+                <input type="text" id="travelerName" required placeholder="First Last Name as in passport">
+            </div>
+            <div>
+                <label for="fromAirport">From:*</label>
+                <input type="text" id="fromAirport" required placeholder="City, Country">
+            </div>
+            <div>
+                <label for="destinationAirport">Destination:*</label>
+                <input type="text" id="destinationAirport" required placeholder="City, Country">
+            </div>
+            <div>
+                <label for="departureDate">Departure Date:*</label>
+                <input type="date" id="departureDate" required>
+                <label for="returnDate">Return Date:*</label>
+                <input type="date" id="returnDate" required oninput="showReturnDateNote()">
+            </div>
+            <div>
+                <label for="hotelLink">Hotel (preferred):</label>
+                <input type="url" id="hotelLink" placeholder="Hotel details or URL weblink" oninput="showHotelNote()">
+                 <p id="hotelNote" style="display: none; color: Maroon;">Note: Hotel cost must not exceed €200 per night, if so, get management approval.</p>
+            </div>
+        </fieldset>
+<!-- Travel by Air -->
+<fieldset>
+    <legend><h4>Travel by Air</h4></legend>
+    <div>
+        <label for="TravelByAir">Travel by Air:</label>
+        <select id="TravelByAir" onchange="toggleTravelByAirFields()">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+    <div id="TravelByAirFields" style="display: none;">
+        <div>
+            <label for="TravelByAirLuggage">Check-in Luggage:</label>
+            <input type="number" id="TravelByAirLuggage"value="0">
+        </div>
+    </div>
+    <p id="TravelByAirNote" style="display: none; color: Maroon;">Note: You may be eligible for a business class seat for air travel with direct durations of more than 10 hours. Check the Moog BV policy.</p>
+</fieldset>
+
+<!-- Car Rental -->
+<fieldset>
+    <legend><h4>Car Rental</h4></legend>
+    <div>
+        <label for="carRental">Car rental:</label>
+        <select id="carRental" onchange="toggleCarRentalFields()">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+        </select>
+    </div>
+    <div id="carRentalFields" style="display: none;">
+        <div>
+            <label for="carPickupLocation">Car rental pick-up location:</label>
+            <input type="text" id="carPickupLocation">
+        </div>
+        <div>
+            <label for="carPickupDate">Car rental pick-up date:</label>
+            <input type="date" id="carPickupDate">
+        </div>
+        <div>
+            <label for="carDropOffDate">Car rental drop-off date:</label>
+            <input type="date" id="carDropOffDate">
+        </div>
+    </div>
+    <p id="carRentalNote" style="display: none; color: Maroon;">Note: Taking a Taxi/Uber is recommended for safety and convenience unless the distance or the stay period is long. Renting a car must not exceed €150 per day.</p>
+</fieldset>
+
+ <!-- Customer Information -->
+        <fieldset>
+            <legend><h4>Customer Information</h4></legend>
+            <div>
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName"placeholder="On-site contact" oninput="showCustomerNameNote()">
+            </div>
+            <div>
+                <label for="customerAddress">Customer Address:</label>
+                <input type="text" id="customerAddress"placeholder="Company name and address">
+            </div>
+            <p id="customerNameNote" style="display: none; color: Maroon;">Note: For administration only. When visiting an event, enter the event name and the address.</p>
+        </fieldset>
+
+
+
+        <!-- Manager Approval -->
+        <fieldset>
+            <legend><h4>Manager Approval</h4></legend>
+            <div>
+                <label for="managerApproved">Manager Approved?:</label>
+                <select id="managerApproved" onchange="toggleManagerEmailField()">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                    <option value="N/A">N/A</option>
+                </select>
+            </div>
+            <div id="managerEmailField" style="display: none;">
+                <label for="managerEmail">Manager's Email:</label>
+                <input type="email" id="managerEmail" placeholder="Enter manager's email">
+            </div>
+        </fieldset>
+        <br/>
+        <!-- Travel Cost Breakdown -->
+        <button type="button" id="toggleBreakdownButton" onclick="toggleBreakdown()">Show/Hide Travel Cost Breakdown</button>
+        <div id="travelCostBreakdown" style="display: none;">
+            <h3>Travel Cost Breakdown</h3>
+			<h4>Change values for cost calculation</h4>
+            <div>
+                <label for="baseFlightFee">Base Flight Fee (in Euros):</label>
+                <input type="number" id="baseFlightFee" value="1000">
+            </div>
+            <div>
+                <label for="hotelFee">Hotel Fee (per night in Euros):</label>
+                <input type="number" id="hotelFee" value="150">
+            </div>
+            <!-- Add more cost inputs here -->
+
+    <div>
+        <label for="mealsCost">Meals Cost (per day in Euros):</label>
+        <input type="number" id="mealsCost" value="100">
+    </div>
+
+    <div>
+        <label for="carRentalFee">Car Rental Fee (per day in Euros):</label>
+        <input type="number" id="carRentalFee" value="120">
+    </div>
+
+    <div>
+        <label for="sundriesCost">Sundries Cost (in Euros per hour):</label>
+        <input type="number" id="sundriesCost" value="2">
+    </div>
+
+
+
+            <button type="button" id="calculateTotalCosts">Calculate Estimated Costs</button>
+            <span id="totalCosts"></span><br><br>
+        </div>
+
+        <!-- Send Inquiry Button -->
+        <button type="button" id="sendEmailButton">Send Inquiry</button>
+    </form>
+
+   <script>
+    function checkRequiredFields() {
+    const requiredFields = document.querySelectorAll('[required]');
+    let allFieldsFilled = true;
+
+    requiredFields.forEach((field) => {
+        if (field.value.trim() === '') {
+            allFieldsFilled = false;
+            field.style.border = '2px solid red'; // Mark empty required fields with red border
+        } else {
+            field.style.border = ''; // Remove border for fields that are not empty
+        }
+    });
+
+    return allFieldsFilled;
+}
+
+
+
+	function toggleBreakdown() {
+        const breakdownSection = document.getElementById("travelCostBreakdown");
+        breakdownSection.style.display = breakdownSection.style.display === "none" ? "block" : "none";
+    }
+
+    function toggleManagerEmailField() {
+        const managerApprovalSelect = document.getElementById('managerApproved');
+        const managerEmailField = document.getElementById('managerEmailField');
+        managerEmailField.style.display = managerApprovalSelect.value === 'yes' ? 'block' : 'none';
+    }
+
+    function calculateTotalCosts() {
+        const departureDate = new Date(document.getElementById("departureDate").value);
+        const returnDate = new Date(document.getElementById("returnDate").value);
+        const hoursDifference = Math.abs(returnDate - departureDate) / 36e5;
+        const daysDifference = Math.abs(returnDate - departureDate) / 8.64e7;
+
+        const sundriesCost = hoursDifference * parseFloat(document.getElementById("sundriesCost").value);
+        const hotelCost = daysDifference * parseFloat(document.getElementById("hotelFee").value);
+        const carRentalDays = document.getElementById("carRental").value === "yes" ? Math.abs(new Date(document.getElementById("carDropOffDate").value) - new Date(document.getElementById("carPickupDate").value)) / 8.64e7 : 0;
+        const carRentalCost = carRentalDays * parseFloat(document.getElementById("carRentalFee").value);
+        const mealsCost = parseFloat(document.getElementById("mealsCost").value);
+        const flightFee = parseFloat(document.getElementById("baseFlightFee").value);
+        const totalInternalCosts = sundriesCost + hotelCost + carRentalCost + mealsCost;
+
+        const totalCostsSpan = document.getElementById("totalCosts");
+        const costBreakdownDiv = document.getElementById("costBreakdown");
+
+        const breakdownSummary = `Hotel cost * ${daysDifference} nights + Sundries * ${hoursDifference} hours + Car rental * ${carRentalDays} days + Meals * 1 day + Base Flight Fee`;
+        const totalCost = flightFee + totalInternalCosts;
+        totalCostsSpan.textContent = `Total costs: ${totalCost} Euros (${breakdownSummary})`;
+
+        const costElements = {
+            travelingCost: totalInternalCosts,
+            hotelCost: hotelCost,
+            carRentalCost: carRentalCost,
+            sundriesCost: sundriesCost,
+            mealsCostDisplay: mealsCost,
+            flightFee: flightFee,
+            totalInternalCosts: totalInternalCosts
+        };
+
+        for (const [elementId, costValue] of Object.entries(costElements)) {
+            document.getElementById(elementId).textContent = `${costValue} Euros`;
+        }
+
+        costBreakdownDiv.style.display = "block"; // Show the cost breakdown section
+    }
+
+  function toggleTravelByAirFields() {
+        const travelByAir = document.getElementById('TravelByAir').value;
+        const travelByAirFields = document.getElementById('TravelByAirFields');
+        if (travelByAir === 'yes') {
+            travelByAirFields.style.display = 'block'; // Show Check-in Luggage field
+        } else {
+            travelByAirFields.style.display = 'none'; // Hide Check-in Luggage field
+        }
+    }
+
+    function toggleCarRentalFields() {
+        const carRental = document.getElementById('carRental').value;
+        const carRentalFields = document.getElementById('carRentalFields');
+        carRentalFields.style.display = carRental === 'yes' ? 'block' : 'none';
+    }
+
+   function composeEmail() {
+        const CRMID = document.getElementById('CRMID').value;
+        const travelerName = document.getElementById('travelerName').value;
+        const fromAirport = document.getElementById('fromAirport').value;
+        const destinationAirport = document.getElementById('destinationAirport').value;
+        const departureDate = document.getElementById('departureDate').value;
+        const returnDate = document.getElementById('returnDate').value;
+        const hotelLink = document.getElementById('hotelLink').value;
+        const customerName = document.getElementById('customerName').value;
+        const customerAddress = document.getElementById('customerAddress').value;
+        const carRental = document.getElementById('carRental').value;
+        const carPickupLocation = document.getElementById('carPickupLocation').value;
+        const carPickupDate = document.getElementById('carPickupDate').value;
+        const carDropOffDate = document.getElementById('carDropOffDate').value;
+        const projectNumber = document.getElementById('projectNumber').value;
+        const orderNumber = document.getElementById('orderNumber').value;
+        const costCenter = document.getElementById('costCenter').value;
+        const quotedCosts = document.getElementById('quotedCosts').value;
+        const reasonForTravel = document.getElementById('reasonForTravel').value;
+        const managerApproved = document.getElementById('managerApproved').value;
+        const managerEmail = document.getElementById('managerEmail').value;
+
+// Check if all required fields are filled before sending the email
+    if (!checkRequiredFields()) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+
+        const subject = `Travel Dates: ${departureDate} to ${returnDate}, Customer: ${customerName}, Project: ${projectNumber}`;
+        let body = `Dear Travel team,\n` +
+                   `Could you please book a flight for the following traveler:\n\n` +
+
+                   `Traveler Name: ${travelerName}\n` +
+                   `From: ${fromAirport}\n` +
+                   `Destination: ${destinationAirport}\n` +
+                   `Departure Date: ${departureDate}\n` +
+                   `Return Date: ${returnDate}\n` +
+                   `Hotel (preferred): ${hotelLink}\n` +
+                   `Customer Name: ${customerName}\n` +
+                   `Customer Address: ${customerAddress}\n` +
+				`Car rental: ${carRental === 'yes' ? 'Yes' : 'No'}\n`;
+
+        if (carRental === 'yes') {
+            body += `Car rental pick-up location: ${carPickupLocation}\n` +
+                    `Car rental pick-up date: ${carPickupDate}\n` +
+                    `Car rental drop-off date: ${carDropOffDate}\n`;
+        }
+
+        body += `CRM ID/CASE: ${CRMID}\n` +
+				`Project Number: ${projectNumber}\n` +
+                `Order Confirmation Number: ${orderNumber}\n` +
+                `Cost Center: ${costCenter}\n` +
+                `Quoted as actual costs?: ${quotedCosts === 'yes' ? 'Yes' : 'No'}\n` +
+                `Reason for travel: ${reasonForTravel}\n`+
+				`Manager approved?: ${managerApproved === 'yes' ? 'Yes' : 'No'}\n` ;
+
+        // Include manager's email in the CC field if manager approval is "Yes" and email is provided
+        if (managerApproved === 'yes' && managerEmail) {
+            body += `CC: ${managerEmail}\n`;
+        }
+        const mailtoURL = `mailto:travel_nl@moog.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&cc=${managerEmail}`;
+window.location.href = mailtoURL;
+
+    }
+
+
+    // Event listeners
+    function setupEventListeners() {
+        document.getElementById("calculateTotalCosts").addEventListener("click", calculateTotalCosts);
+        document.getElementById("sendEmailButton").addEventListener("click", composeEmail);
+        document.getElementById('managerApproved').addEventListener('change', toggleManagerEmailField);
+    }
+
+    setupEventListeners();
+
+
+
+
+	function showHotelNote() {
+    const hotelLink = document.getElementById('hotelLink');
+    const hotelNote = document.getElementById('hotelNote');
+
+    if (hotelLink.value.trim() !== '') {
+      hotelNote.style.display = 'block'; // Show the note when text is entered.
+    } else {
+      hotelNote.style.display = 'none'; // Hide the note when the input is empty.
+    }
+  }
+
+
+    function toggleCarRentalFields() {
+        const carRental = document.getElementById('carRental');
+        const carRentalFields = document.getElementById('carRentalFields');
+        const carRentalNote = document.getElementById('carRentalNote');
+
+        if (carRental.value === 'yes') {
+            carRentalFields.style.display = 'block'; // Show car rental fields.
+            carRentalNote.style.display = 'block'; // Show the note.
+        } else {
+            carRentalFields.style.display = 'none'; // Hide car rental fields.
+            carRentalNote.style.display = 'none'; // Hide the note.
+        }
+    }
+
+
+        // Date difference calculation (assuming the return date is after the departure date).
+        const departureDate = new Date(document.getElementById('departureDate').value);
+        const selectedReturnDate = new Date(returnDate.value);
+        const timeDifference = selectedReturnDate - departureDate;
+        const hoursDifference = Math.floor(timeDifference / (1000 * 3600));
+
+        if (hoursDifference > 10) {
+            returnDateNote.style.display = 'block'; // Show the note.
+        } else {
+            returnDateNote.style.display = 'none'; // Hide the note.
+        }
+
+
+	function showCustomerNameNote() {
+        const customerName = document.getElementById('customerName');
+        const customerNameNote = document.getElementById('customerNameNote');
+
+        if (customerName.value.trim() !== '') {
+            customerNameNote.style.display = 'block'; // Show the note.
+        } else {
+            customerNameNote.style.display = 'none'; // Hide the note.
+        }
+    }
+	function showQuotedCostsNote() {
+        const quotedCosts = document.getElementById('quotedCosts');
+        const quotedCostsNote = document.getElementById('quotedCostsNote');
+
+        if (quotedCosts.value === 'yes') {
+            quotedCostsNote.style.display = 'block'; // Show the note.
+        } else {
+            quotedCostsNote.style.display = 'none'; // Hide the note.
+        }
+    }
+	 function toggleTravelByAirFields() {
+        const travelByAir = document.getElementById('TravelByAir').value;
+        const travelByAirFields = document.getElementById('TravelByAirFields');
+        const travelByAirNote = document.getElementById('TravelByAirNote');
+
+        if (travelByAir === 'yes') {
+            travelByAirFields.style.display = 'block'; // Show Check-in Luggage field
+            travelByAirNote.style.display = 'block'; // Show the note
+        } else {
+            travelByAirFields.style.display = 'none'; // Hide Check-in Luggage field
+            travelByAirNote.style.display = 'none'; // Hide the note
+        }
+    }
+
+</script>
+
+<!-- footer section Start -->
+      <!-- Donate section start -->
+      <h5>
+
+
+
+            <p class="copyright_text">&copy; 2024. By Bawan, Anmol, Ajay. All Rights Reserved.</p>
+
+
+         </h5>
+         <div class="copyright_section">
+         <div class="container">
+         </div>
+      </div>
+      <!-- copyright section end  -->
+</body>
+</html>
+
+</body>
+</html>
